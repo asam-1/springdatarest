@@ -4,6 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import samet.microservices.rest.springdatarest.model.Product;
 import samet.microservices.rest.springdatarest.repositories.ProductRepository;
 
@@ -15,8 +16,9 @@ public class SpringdatarestApplication {
 	}
 
 	@Bean
-	CommandLineRunner start(ProductRepository productRepository){
+	CommandLineRunner start(ProductRepository productRepository, RepositoryRestConfiguration repositoryRestConfiguration){
 		return  args -> {
+			repositoryRestConfiguration.exposeIdsFor(Product.class); 
 			productRepository.save(new Product(null, "p1", 23, 234));
 			productRepository.save(new Product(null, "p2", 29, 23));
 			productRepository.save(new Product(null, "p3", 77, 34));
