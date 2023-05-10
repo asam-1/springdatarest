@@ -1,4 +1,4 @@
-package samet.microservices.rest.springdatarest.repositories;
+package samet.microservices.rest.springdatarest.projections;
 
 
 import org.springframework.data.rest.core.config.Projection;
