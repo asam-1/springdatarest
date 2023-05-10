@@ -18,7 +18,7 @@ public class SpringdatarestApplication {
 	@Bean
 	CommandLineRunner start(ProductRepository productRepository, RepositoryRestConfiguration repositoryRestConfiguration){
 		return  args -> {
-			repositoryRestConfiguration.exposeIdsFor(Product.class); 
+			repositoryRestConfiguration.exposeIdsFor(Product.class);
 			productRepository.save(new Product(null, "p1", 23, 234));
 			productRepository.save(new Product(null, "p2", 29, 23));
 			productRepository.save(new Product(null, "p3", 77, 34));
